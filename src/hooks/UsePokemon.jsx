@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
@@ -6,9 +7,10 @@ import PokemonList from "../pokemon/PokemonList";
 
 function UsePokemon() {
   const [pokemonList, setPokemonList] = useState([]);
+  const pokemonUrl = "https://pokeapi.co/api/v2/pokemon";
 
   async function downloadPokemon() {
-    const response = await axios.get("https://pokeapi.co/api/v2/pokemon");
+    const response = await axios.get(pokemonUrl);
     const pokemonResults = response.data.results;
     // console.log(response.data);
     // console.log(pokemonResults);
@@ -23,7 +25,9 @@ function UsePokemon() {
       return {
         name: pokemon.name,
         id: pokemon.id,
-        Image: pokemon.sprites.back_default,
+        Image: pokemon.sprites.other
+          ? pokemon.sprites.other.dream_world.front_default
+          : pokemon,
         types: pokemon.types,
       };
     });
