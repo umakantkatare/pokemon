@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-undef */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
@@ -7,12 +8,16 @@ import PokemonList from "../pokemon/PokemonList";
 
 function UsePokemon() {
   const [pokemonList, setPokemonList] = useState([]);
-  const pokemonUrl = "https://pokeapi.co/api/v2/pokemon";
+  const [pokemonUrl, setPokemonUrl] = useState("https://pokeapi.co/api/v2/pokemon");
+  const [next, setNext] = useState('')
+  const [prev, setPrev] = useState('')
 
   async function downloadPokemon() {
     const response = await axios.get(pokemonUrl);
     const pokemonResults = response.data.results;
-    // console.log(response.data);
+    setPrev(response.data.previous)
+    setNext(response.data.next)
+    console.log(response.data);
     // console.log(pokemonResults);
     const pokemonPromise = pokemonResults.map((pokemon) => {
       return axios.get(pokemon.url);
@@ -37,12 +42,22 @@ function UsePokemon() {
   }
   useEffect(() => {
     downloadPokemon();
-  }, []);
+  }, [pokemonUrl]);
   return (
     <div>
+      <div>
       {pokemonList.map((p) => (
         <PokemonList name={p.name} image={p.Image} key={p.id} />
       ))}
+      <h1>hello</h1>
+      </div>
+     
+      <div>
+        <h1>hello</h1>
+        <button className=" bg-slate-500" disabled = {prev === null} onClick={() => {setPokemonUrl(prev)}}>prev</button>
+        <button  className=" bg-slate-200" disabled = {next === null} onClick={() => {setPokemonUrl(next)}}>next</button>
+
+      </div>
     </div>
   );
 }
