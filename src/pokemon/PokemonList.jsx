@@ -9,6 +9,7 @@ function PokemonList({ name, image }) {
       <div>
         <img src={image} />
       </div>
+    
     </div>
   );
 }
