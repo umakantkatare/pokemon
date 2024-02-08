@@ -25,7 +25,12 @@ function PokemonDetails() {
    
   }
   return (
-    <div>PokemonDetails</div>
+    <div>
+<div>name:{pokemon.name}</div>
+<div><img src={pokemon.image} alt="" /></div>
+<div>name:{pokemon.name}</div>
+    </div>
+    
   )
 }
 
