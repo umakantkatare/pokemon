@@ -47,7 +47,7 @@ function UsePokemon() {
     <div>
       <div>
       {pokemonList.map((p) => (
-        <PokemonList name={p.name} image={p.Image} key={p.id} />
+        <PokemonList name={p.name} image={p.Image} key={p.id} id={p.id} />
       ))}
       <h1>hello</h1>
       </div>
