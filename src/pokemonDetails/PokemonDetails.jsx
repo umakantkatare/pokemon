@@ -33,6 +33,9 @@ function PokemonDetails() {
 <img src={pokemon.image} alt={pokemon.name} className=' m-5' />
 <div className=' font-bold text-2xl'>Weight: {pokemon.weight}</div>
 <div className=' font-bold text-2xl'>Height: {pokemon.height}</div>
+<div >
+ {pokemon.types}
+</div>
     </div>
     
   )
