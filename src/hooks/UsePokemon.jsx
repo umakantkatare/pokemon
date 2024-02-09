@@ -17,14 +17,14 @@ function UsePokemon() {
     const pokemonResults = response.data.results;
     setPrev(response.data.previous)
     setNext(response.data.next)
-    console.log(response.data);
+    // console.log(response.data);
     // console.log(pokemonResults);
     const pokemonPromise = pokemonResults.map((pokemon) => {
       return axios.get(pokemon.url);
     });
-    console.log(pokemonPromise);
+    // console.log(pokemonPromise);
     const pokemonData = await axios.all(pokemonPromise);
-    console.log(pokemonData);
+    // console.log(pokemonData);
     const res = pokemonData.map((pokeData) => {
       const pokemon = pokeData.data;
       return {
@@ -37,7 +37,7 @@ function UsePokemon() {
       };
     });
 
-    console.log(res);
+    // console.log(res);
     setPokemonList(res);
   }
   useEffect(() => {
@@ -49,13 +49,13 @@ function UsePokemon() {
       {pokemonList.map((p) => (
         <PokemonList name={p.name} image={p.Image} key={p.id} id={p.id} />
       ))}
-      <h1>hello</h1>
+     
       </div>
      
       <div>
-        <h1>hello</h1>
-        <button className=" bg-slate-500" disabled = {prev === null} onClick={() => {setPokemonUrl(prev)}}>prev</button>
-        <button  className=" bg-slate-200" disabled = {next === null} onClick={() => {setPokemonUrl(next)}}>next</button>
+        
+        <button className=" bg-slate-500 m-2 p-1 px-2 rounded-sm" disabled = {prev === null} onClick={() => {setPokemonUrl(prev)}}>prev</button>
+        <button  className=" bg-slate-500 m-2 p-1 px-2 rounded-sm" disabled = {next === null} onClick={() => {setPokemonUrl(next)}}>next</button>
 
       </div>
     </div>

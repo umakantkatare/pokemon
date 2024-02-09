@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 function PokemonList({ name, image, id }) {
   return (
-    <div>
+    <div className=' flex justify-center items-center flex-col gap-2'>
      <Link to={`/pokemon/${id}`}>
-     <div>{name} </div>
+     <div className="text-2xl">{name} </div>
       <div>
-        <img src={image} />
+        <img className="m-5"  src={image} />
       </div>
      </Link>
      
