@@ -44,7 +44,11 @@ function UsePokemon() {
     downloadPokemon();
   }, [pokemonUrl]);
   return (
-    <div>
+    <div className="">
+      <div className="w-full bg-black text-center p-1 mb-5">
+
+      <h1 className="  text-5xl font-bold mb-3 p-2 text-center  text-white">pokemon</h1>
+      </div>
       <div>
       {pokemonList.map((p) => (
         <PokemonList name={p.name} image={p.Image} key={p.id} id={p.id} />
