@@ -7,7 +7,7 @@ import SearchInput from "./searchInput/SearchInput";
 function App() {
   return (
     <>
-     <SearchInput/>
+     {/* <SearchInput/> */}
       <CustomRoutes/>
     </>
   );
