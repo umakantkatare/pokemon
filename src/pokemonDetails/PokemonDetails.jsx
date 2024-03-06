@@ -30,7 +30,7 @@ function PokemonDetails() {
   return (
     <div className=' flex justify-center items-center flex-col gap-2'>
 <div className=' font-bold text-2xl'>Name: {pokemon.name}</div>
-<img src={pokemon.image} alt={pokemon.name} className=' m-5' />
+<img src={pokemon.image} alt={pokemon.name} className=' w-[500px] h-[500px] m-5' />
 <div className=' font-bold text-2xl'>Weight: {pokemon.weight}</div>
 <div className=' font-bold text-2xl'>Height: {pokemon.height}</div>
 <div >
